@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        .form-container {
+            width: 650px;
+            margin: 40px auto;
+            border: 1px solid white;
+            background-color: #eeefe9;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 25px;
+            margin: 0;
+            padding: 15px;
+            border-bottom: 1px solid #777;
+        }
+
+        .form-title {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            border-bottom: 1px solid #777;
+        }
+
+        .row {
+            display: flex;
+            border-bottom: 1px solid #777;
+        }
+
+        .label {
+            width: 150px;
+            padding: 10px;
+            border-right: 1px solid #777;
+            box-sizing: border-box;
+        }
+
+        .input-area {
+            flex: 1;
+            padding: 7px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 180px;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+        }
+
+        textarea {
+            height: 65px;
+            resize: none;
+        }
+
+        input[type="radio"] {
+            margin-left: 5px;
+        }
+
+        input[type="file"] {
+            width: 250px;
+        }
+
+        .buttons {
+            text-align: center;
+            padding: 10px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin: 0 3px;
+            border: 1px solid #aaa;
+            background-color: #eeeeee;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+
+        <h1>Student Registration Form</h1>
+
+        <div class="form-title">
+            Registration Form
+        </div>
+
+        <form>
+
+            <!-- Full Name -->
+            <div class="row">
+                <div class="label">Full Name</div>
+                <div class="input-area">
+                    <input type="text" placeholder="Enter your name">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="row">
+                <div class="label">Email</div>
+                <div class="input-area">
+                    <input type="email" placeholder="Enter your email">
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="row">
+                <div class="label">Phone Number</div>
+                <div class="input-area">
+                    <input type="tel" placeholder="9876543210">
+                </div>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="row">
+                <div class="label">Date of Birth</div>
+                <div class="input-area">
+                    <input type="date">
+                </div>
+            </div>
+
+            <!-- Gender -->
+            <div class="row">
+                <div class="label">Gender</div>
+                <div class="input-area">
+                    <input type="radio" name="gender"> Male
+                    <input type="radio" name="gender"> Female
+                    <input type="radio" name="gender"> Other
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="row">
+                <div class="label">Skills</div>
+                <div class="input-area">
+                    <input type="checkbox" name="skill"> HTML
+                    <input type="checkbox" name="skill"> CSS
+                    <input type="checkbox" name="skill"> JavaScript
+                </div>
+            </div>
+
+            <!-- Course -->
+            <div class="row">
+                <div class="label">Course</div>
+                <div class="input-area">
+                    <select>
+                        <option>Select Course</option>
+                        <option>B.Tech</option>
+                        <option>BCA</option>
+                        <option>MCA</option>
+                        <option>M.Tech</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="row">
+                <div class="label">Address</div>
+                <div class="input-area">
+                    <textarea></textarea>
+                </div>
+            </div>
+
+            <!-- Resume -->
+            <div class="row">
+                <div class="label">Upload Resume</div>
+                <div class="input-area">
+                    <input type="file">
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="submit">Register</button>
+                <button type="reset">Reset</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
