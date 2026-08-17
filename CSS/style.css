@@ -13,8 +13,8 @@
     width: 400px;
     height: 600px;
     border: 2px solid black;
-    margin: 0 auto;
-    /* padding: 20px; */
+    margin: 90px auto;
+    padding: 20px;
 }
 
 .box{
@@ -23,11 +23,12 @@
     /* height: 300px; */
     border: 2px solid black;
     padding: 20px;
+    margin-top: 20px;
     box-sizing: border-box;
 }
 
 .box p{
-    font-size: 18px;    /* default font size is 16px */
+    font-size: 2rem;    /* default font size is 16px */
     line-height: 1.5;
 }
 
