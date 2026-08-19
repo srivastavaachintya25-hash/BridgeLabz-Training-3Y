@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+.container{
+    border: 5px solid red;
+    width: 80%;
+    padding: 20px 50px;
+    margin: 20px auto;
+    font-size: 10px;
+    border-radius: 10px 0px 10px 0px;     /* (top-left, top-right, bottom-right, bottom-left) */
+}
+.container p{
+    /* font-size: 30px; */
+    font-size: 2rem;    /* default font size is 16px, rem-root element*/ 
+    line-height: 2rem;
+    font-family:'Courier New', Courier, monospace;
+
+}
+.green{
+    background-color: green;
+    color: white;
+    height: 100px;
+    width: 100px;
+    /* display: none; */
+    visibility: hidden;   /* element is not visible but still takes up space */
+    visibility: visible;  /* element is visible */ 
+    
+}
