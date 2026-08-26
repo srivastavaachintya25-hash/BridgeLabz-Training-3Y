@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(237, 222, 193);
+    text-align: center;
+    font-family: Arial;
+}
+
+.card {
+    background-color: rgb(242, 246, 198);
+    width: 350px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.photo {
+    background-color: lightgray;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: auto;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: black;
+}
+
+h2, p {
+    color: black;
+}
+ul{
+    color: blue
+}
+
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+}
