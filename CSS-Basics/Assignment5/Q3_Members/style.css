@@ -1,0 +1,33 @@
+body {
+    font-family: Arial;
+    background-color: #eeeeee;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.team {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    background-color: white;
+    padding: 25px;
+    margin: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.card h2 {
+    color: navy;
+}
+
+.leader {
+    background-color: lightblue;
+    border: 3px dashed blue;
+}

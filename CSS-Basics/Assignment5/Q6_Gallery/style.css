@@ -1,0 +1,50 @@
+body {
+    font-family: Arial;
+    background-color: #eeeeee;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.photo {
+    width: 30%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.photo img {
+    width: 100%;
+    display: block;
+    transition: 0.3s;
+}
+
+.photo p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    opacity: 0;
+}
+
+.photo:hover img {
+    transform: scale(1.1);
+}
+
+.photo:hover p {
+    opacity: 1;
+}

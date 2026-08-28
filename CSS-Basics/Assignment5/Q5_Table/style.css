@@ -1,0 +1,50 @@
+body {
+    font-family: Arial;
+    background-color: #eeeeee;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.plans {
+    display: flex;
+    gap: 20px;
+}
+
+.plan {
+    flex: 1;
+    padding: 25px;
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.3s;
+}
+
+.plan:hover {
+    transform: scale(1.05);
+    background-color: lightblue;
+}
+
+.plan li {
+    margin: 15px;
+}
+
+.plan a {
+    background-color: blue;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.popular {
+    border: 4px solid orange;
+}

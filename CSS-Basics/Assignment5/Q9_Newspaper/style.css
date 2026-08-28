@@ -1,0 +1,37 @@
+body {
+    background-color: lightgray;
+    font-family: Georgia;
+    padding: 30px;
+}
+
+.newspaper {
+    background-color: white;
+    padding: 30px;
+}
+
+.newspaper > h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+article {
+    column-count: 3;
+    column-gap: 30px;
+    text-align: justify;
+}
+
+article h2 {
+    column-span: all;
+    text-align: center;
+}
+
+article img {
+    float: left;
+    width: 150px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+article p {
+    line-height: 1.6;
+}
