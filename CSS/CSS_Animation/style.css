@@ -1,0 +1,83 @@
+.container{
+    width: 100px;
+    height: 100px;
+    /* background-color: red; */
+    animation : move 1s ease infinite;
+
+}
+/* @keyframes move{
+    0%{
+        transform: translate(0px,0px);
+    }
+    30%{
+        transform: translate(600px,0px);
+    }
+    50%{
+        transform: translate(600px,300px);
+    }
+    70%{
+        transform: translate(0px,300px);
+    }
+} */
+
+.spinner{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-top: 3px solid blue;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin{ 
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.Ball{
+    width: 100px;
+    height: 100px;
+    background-color:red;
+    border-radius: 50%;
+    animation: bounce 5s linear infinite;
+}
+@keyframes bounce{
+    0%{
+        transform: translate(0px,0px);
+    }
+    10%{
+        transform: translateY(600px) scale(0.8,1.1);
+    }
+    20%{
+        transform: translateY(150px);
+    }
+    30%{
+        transform: translateY(600px) scale(0.8,1.1);
+    }
+    40%{
+        transform: translateY(250px);
+    }
+    50%{
+        transform: translateY(600px)scale(0.8,1.1);
+    }
+    60%{
+        transform: translateY(350px);
+    }
+    70%{
+        transform: translateY(600px)scale(0.8,1.1);
+    }
+    80%{
+        transform: translateY(450px);
+    }
+    90%{
+        transform: translateY(600px)scale(0.8,1.1);
+    }
+    100%{
+        transform: translateY(550px);
+    }
+    100%{
+        transform: translateY(600px);
+    }
+}
