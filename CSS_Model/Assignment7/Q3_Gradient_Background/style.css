@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 10px;
+}
+
+section {
+    min-height: 60vh;
+    padding: 100px 20px;
+}
+
+.linear {
+    background: linear-gradient(to right, lightblue, lightgreen);
+    background-attachment: fixed;
+}
+
+.radial {
+    background: radial-gradient(circle, pink, orange);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background: white;
+}

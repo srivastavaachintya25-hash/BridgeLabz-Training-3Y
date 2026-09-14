@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: lightgray;
+}
+
+nav a {
+    padding: 15px 25px;
+    border: 1px solid gray;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: black;
+    color: white;
+}
+
+/* Active link */
+nav a.active {
+    background: lightblue;
+    font-weight: bold;
+}
+
+main {
+    padding: 80px;
+}
+
+footer {
+    padding: 15px;
+    background: lightgray;
+}
+
+/* Responsive navbar */
+@media (max-width: 700px) {
+    nav {
+        flex-direction: column;
+    }
+}
