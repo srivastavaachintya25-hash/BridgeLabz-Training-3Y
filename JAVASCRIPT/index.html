@@ -44,24 +44,61 @@
     // console.log((res));
     // console.log(typeof(res));
 
-    let marks = 99;
-    if (marks >= 90) {
-        console.log("Grade A+");
-    }
-    else if (marks >= 80) {
-        console.log("Grade A");
-    }
-    else if (marks >= 70) {
-        console.log("Grade B");
-    }
-    else if (marks >= 60) {
-        console.log("Grade C");
-    }
-    else if (marks >= 40) {
-        console.log("Grade D");
-    }
-    else{
-        console.log("Fail");
+    // let marks = 99;
+    // if (marks >= 90) {
+    //     console.log("Grade A+");
+    // }
+    // else if (marks >= 80) {
+    //     console.log("Grade A");
+    // }
+    // else if (marks >= 70) {
+    //     console.log("Grade B");
+    // }
+    // else if (marks >= 60) {
+    //     console.log("Grade C");
+    // }
+    // else if (marks >= 40) {
+    //     console.log("Grade D");
+    // }
+    // else{
+    //     console.log("Fail");
+    // }
+
+    // == vs ===
+    // == check value 
+    // === check value as well as type 
+
+    // let a = 10;
+    // let b="10";
+    // if(a===b){
+    // console.log("True");
+    // }
+    // else{
+    // console.log("false");
+    // }
+     
+    //console.log("200"+10+20+30+"100"+20); //20010203010020  //implicit conversion
+
+    // let name="Ash";
+    // let age = 10;
+
+    // console.log(`My name is ${name} and my age is ${age}`); //String Template
+
+    //Math Method
+
+    // let a = 10.5;
+    // console.log(`Math.floor ${Math.floor(a)}`); //10
+    // console.log(`Math.ceil ${Math.ceil(a)}`); //11
+
+    // let randomNum = Math.random();
+    // console.log(randomNum); //0 to 1
+    // console.log(randomNum*10); //0 to 9
+    // console.log(randomNum*10+1); //1 to 10
+
+    // let randomNum = Math.random()*10+1;
+    for(let i=0;i<10;i++){
+        let randomNum = Math.random()*10+1;
+        console.log((`i ${i}: `+ Math.floor(randomNum)));
     }
 </script>
 </html>
