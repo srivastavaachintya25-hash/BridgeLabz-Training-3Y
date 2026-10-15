@@ -12,7 +12,8 @@
 </body>
 
 <script>
-    console.log("first line");
+
+    // console.log("first line");
 
     // let a = 10;
     // let b = "hello";
@@ -109,14 +110,167 @@
     // true:"45678jadcd",-1,1234.
     // false:0,"",null,undefined,NaN
 
-let a =" ";
+// let a =" ";
 
-if(a||null){
-    console.log("true");
-}
-else{
-    console.log("false");
-}
-    console.log(Boolean(a));
+// if(a||null){
+//     console.log("true");
+// }
+// else{
+//     console.log("false");
+// }
+//     console.log(Boolean(a));
+
+
+// -----------------------------------------------------------------x-x-x--------------------------------------------------------------
+
+    // let result = "value is "+ true;
+    // console.log(result);
+    // console.log(typeof(result));
+
+    // console.log(true+3); //4
+    // console.log(false+5); //5
+
+
+// string to number conversion
+
+    // let strNumber1 = "10";
+    // let num1=Number(strNumber1);
+    // console.log(num1,typeof(num1));
+
+    // let strNumber2 = "10.5";
+    // let num2=parseFloat(strNumber2);
+    // console.log(num2,typeof(num2));
+
+    //Number to string conversion
+
+    // let num3 = 10;
+    // let str3 = String(num3);    
+    // console.log(str3,typeof(str3));
+
+    // let num2=250;
+    // let str2=number2+"";
+    // console.log(str2,typeof(str2));
+
+    //boolean to number conversion
+    // let bool1 = true;
+    // let num4 = Number(bool1);
+    // console.log(num4,typeof(num4));
+
+// ---------------------------------------------------------------------x-x-x------------------------------------------------------------------
+
+
+    //function decelaration
+
+    // function add(a,b){
+    //     let res = a+b;
+    //     console.log(res);
+    //     return res;
+    // }
+    // let a = add(10,20);
+    // console.log(a);
+
+
+
+    //function expression
+
+    // let add = function(a,b){
+    //     return a+b;
+    // }
+    // let a = add(10,20);
+    // console.log(a);
+
+
+    // arrow function
+
+    // let add = (a,b) => {
+    //     return a+b;
+    // }
+    // add(10,20);
+
+    // // or
+
+    // let add =(a,b)=>a+b
+    // let a = add(10,20);
+    // console.log(a);
+
+
+    // Higher order function
+
+
+    let add =(a,b)=>a+b
+    let mul =(a,b)=>a*b
+
+    function calculate(a,b,callback){
+            return callback(a,b);
+        }
+        let ans = calculate(10,20,add);
+        let multi = calculate(10,20,mul);
+        console.log(ans);
+        console.log(multi);
+
+
+        // --------------------------------------------x-x-x-----------------------------------------------------
+
+    // let arr = [1,2,3,4,5];
+    // // let fun = (x)=>{
+    // //     return x*x
+    // // }
+    // let result = arr.map((x)=>{
+    //     return x*x
+    // });
+
+    // let even = arr.filter((x)=>{
+    //     return x%2==0
+    // });
+
+    // let arr = [1,2,3,4,5];
+    // let result = arr.map(x=>x*2);
+    // console.log(arr);
+
+
+//filter all apple
+
+// let arr3=["apple","mango","orange","apple","AppLe"];
+// let result = arr3.filter((x)=>{
+//     let ele = x.toLowerCase();
+//     return ele!="apple";
+// });
+// console.log(result);
+
+
+
+//map the sqaure of each element in new array
+let arr5=[1,2,3,4,5];
+let result2 = arr5.map((x)=>{
+    return x*x;
+});
+console.log(result2);
+
+
+//filter age > 18
+let arr6=[10,20,30,40,50];
+let result3 = arr6.filter((x)=>{
+    return x>18;
+});
+console.log(result3);
+
+
+//filter the fruit whose length is greater than 5
+let arr7=["apple","mango","orange","apple","AppLe"];
+let result4 = arr7.filter((x)=>{
+    return x.length>5;
+});
+console.log(result4);
+
+
+//filter the fruit start with "a" or "A"
+let arr8=["apple","mango","orange","apple","AppLe"];
+let result5 = arr8.filter((x)=>{
+    let ele = x.toLowerCase();
+    return ele.startsWith("a");
+});
+console.log(result5);
+
+
 </script>
 </html>
