@@ -197,16 +197,16 @@
     // Higher order function
 
 
-    let add =(a,b)=>a+b
-    let mul =(a,b)=>a*b
+    // let add =(a,b)=>a+b
+    // let mul =(a,b)=>a*b
 
-    function calculate(a,b,callback){
-            return callback(a,b);
-        }
-        let ans = calculate(10,20,add);
-        let multi = calculate(10,20,mul);
-        console.log(ans);
-        console.log(multi);
+    // function calculate(a,b,callback){
+    //         return callback(a,b);
+    //     }
+    //     let ans = calculate(10,20,add);
+    //     let multi = calculate(10,20,mul);
+    //     console.log(ans);
+    //     console.log(multi);
 
 
         // --------------------------------------------x-x-x-----------------------------------------------------
@@ -239,38 +239,66 @@
 
 
 
-//map the sqaure of each element in new array
-let arr5=[1,2,3,4,5];
-let result2 = arr5.map((x)=>{
-    return x*x;
-});
-console.log(result2);
+// //map the sqaure of each element in new array
+// let arr5=[1,2,3,4,5];
+// let result2 = arr5.map((x)=>{
+//     return x*x;
+// });
+// console.log(result2);
 
 
-//filter age > 18
-let arr6=[10,20,30,40,50];
-let result3 = arr6.filter((x)=>{
-    return x>18;
-});
-console.log(result3);
+// //filter age > 18
+// let arr6=[10,20,30,40,50];
+// let result3 = arr6.filter((x)=>{
+//     return x>18;
+// });
+// console.log(result3);
 
 
-//filter the fruit whose length is greater than 5
-let arr7=["apple","mango","orange","apple","AppLe"];
-let result4 = arr7.filter((x)=>{
-    return x.length>5;
-});
-console.log(result4);
+// //filter the fruit whose length is greater than 5
+// let arr7=["apple","mango","orange","apple","AppLe"];
+// let result4 = arr7.filter((x)=>{
+//     return x.length>5;
+// });
+// console.log(result4);
 
 
-//filter the fruit start with "a" or "A"
-let arr8=["apple","mango","orange","apple","AppLe"];
-let result5 = arr8.filter((x)=>{
-    let ele = x.toLowerCase();
-    return ele.startsWith("a");
-});
-console.log(result5);
+// //filter the fruit start with "a" or "A"
+// let arr8=["apple","mango","orange","apple","AppLe"];
+// let result5 = arr8.filter((x)=>{
+//     let ele = x.toLowerCase();
+//     return ele.startsWith("a");
+// });
+// console.log(result5);
 
+// --------------------------------------x-x-x---------------------------------------------------------------------
+
+// "use strict"
+// a=10;
+// console.log(a);
+
+// function fun(a,a){
+//     console.log("hello");
+// }
+// fun(10,20);
+
+//hoisting: var,function declaration are hoisted but let and const are not hoisted
+
+// var b = "hello";
+// fun();
+// var b = function fun(){ 
+//     console.log("fun");
+// }
+
+console.log("b");
+var b ="hello";
+
+b();
+
+var b = () => {
+    console.log("fun") 
+}
 
 </script>
+
 </html>
