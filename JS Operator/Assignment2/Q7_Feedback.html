@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q7 - Feedback Processor</title>
+</head>
+<body>
+    <h2>Customer Feedback Processor</h2>
+
+    <script>
+        let feedback = "Great product! Fast delivery and amazing sound quality!";
+
+        let words = feedback.trim().split(" ");
+        console.log("Word Count: " + words.length);
+
+        let text = feedback.toLowerCase();
+
+        if (text.includes("bad") || text.includes("poor")) {
+            console.log("Needs Improvement");
+        } else {
+            console.log("Positive Feedback");
+        }
+    </script>
+</body>
+</html>
