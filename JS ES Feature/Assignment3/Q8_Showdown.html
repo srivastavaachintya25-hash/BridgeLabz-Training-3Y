@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Strict Mode Showdown</title>
+</head>
+<body>
+    <h2>Strict Mode Showdown</h2>
+
+    <script>
+        "use strict";
+
+        function demo(a, b) {
+            let total = a + b;
+
+            console.log("Total:", total);
+
+            total = 0;
+
+            console.log("Updated total:", total);
+        }
+
+        demo(5, 10);
+
+    </script>
+</body>
+</html>
