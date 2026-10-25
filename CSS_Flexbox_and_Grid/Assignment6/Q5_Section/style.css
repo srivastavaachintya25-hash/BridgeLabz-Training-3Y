@@ -1,0 +1,38 @@
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    width: 250px;
+    padding: 30px;
+    background-color: lightgray;
+    animation: fade 1s;
+    transition: transform 0.3s;
+}
+
+.middle {
+    background-color: lightblue;
+    transform: scale(1.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

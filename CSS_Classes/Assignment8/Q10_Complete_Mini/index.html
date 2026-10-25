@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini User Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>StudyHub</h1>
+        <p>Your simple learning space</p>
+    </header>
+
+    <main>
+
+        <section class="card">
+
+            <img
+                src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=500"
+                alt="Books on a table"
+            >
+
+            <div class="content">
+
+                <h2>Start Learning Today</h2>
+
+                <p>
+                    Choose your preferred subject and begin
+                    your learning journey.
+                </p>
+
+                <form>
+
+                    <label for="subject">Select Subject</label>
+
+                    <select id="subject">
+                        <option>HTML and CSS</option>
+                        <option>Java Programming</option>
+                        <option>Data Science</option>
+                    </select>
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                    >
+
+                    <div class="actions">
+
+                        <button type="submit">Join Now</button>
+
+                        <button type="reset" class="cancel">
+                            Clear
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 StudyHub</p>
+    </footer>
+
+</body>
+</html>

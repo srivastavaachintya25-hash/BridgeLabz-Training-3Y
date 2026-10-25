@@ -1,0 +1,54 @@
+/* Attribute selector */
+input[type="text"] {
+    padding: 10px;
+}
+
+/* Attribute selector */
+a[href^="https"] {
+    color: green;
+}
+
+/* Hover pseudo-class */
+a:hover {
+    color: red;
+}
+
+/* Focus pseudo-class */
+input:focus {
+    border: 2px solid blue;
+}
+
+/* nth-child pseudo-class */
+li:nth-child(2) {
+    color: blue;
+}
+
+/* Before pseudo-element */
+h1::before {
+    content: "★ ";
+}
+
+/* After pseudo-element */
+h1::after {
+    content: " ★";
+}
+
+/* Child combinator > */
+.box > p {
+    background: lightblue;
+}
+
+/* Adjacent sibling + */
+.box p + p {
+    color: red;
+}
+
+/* General sibling ~ */
+.box p ~ span {
+    color: green;
+}
+
+/* Descendant selector */
+.box p {
+    padding: 5px;
+}

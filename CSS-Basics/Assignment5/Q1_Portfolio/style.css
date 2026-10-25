@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+/* Fixed header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: navy;
+    color: white;
+    padding: 15px;
+}
+
+header h1 {
+    display: inline;
+    font-size: 25px;
+}
+
+nav {
+    float: right;
+    margin-right: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+}
+
+main {
+    padding-top: 100px;
+    min-height: 500px;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+}
+
+.text {
+    width: 400px;
+}
+
+.text h2 {
+    font-size: 35px;
+    color: navy;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.profile img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+footer {
+    background-color: navy;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

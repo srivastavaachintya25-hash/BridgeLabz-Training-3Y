@@ -1,0 +1,43 @@
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
+.margin {
+    background: lightgray;
+    padding: 30px;
+    display: inline-block;
+}
+
+.border {
+    border: 10px solid black;
+    padding: 20px;
+    background: gray;
+}
+
+.padding {
+    padding: 30px;
+    background: lightyellow;
+}
+
+.content {
+    padding: 40px;
+    background: lightblue;
+}
+
+/* Default box sizing */
+.box1 {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: auto;
+}
+
+/* border-box */
+.box2 {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid black;
+    box-sizing: border-box;
+    margin: auto;
+}

@@ -1,0 +1,58 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #172554;
+}
+
+header {
+    text-align: center;
+    padding: 25px;
+}
+
+.comparison {
+    display: flex;
+    gap: 25px;
+    padding: 30px 8%;
+}
+
+figure {
+    flex: 1;
+    margin: 0;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #0002;
+}
+
+figure img {
+    width: 100%;
+    border-radius: 8px;
+    filter: none;
+    transition: filter 0.5s ease;
+}
+
+.filtered img {
+    filter: brightness(60%) contrast(160%);
+}
+
+figure:hover img {
+    filter: none;
+}
+
+figcaption {
+    text-align: center;
+    font-weight: bold;
+    padding: 12px;
+}
+
+@media (max-width: 700px) {
+    .comparison {
+        flex-direction: column;
+    }
+}

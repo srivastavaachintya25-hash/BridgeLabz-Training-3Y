@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.box {
+    width: 30%;
+    padding: 30px;
+    text-align: center;
+    background-color: lightgray;
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: rotate(2deg);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: lightblue;
+}
