@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form Validator</title>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 6px;
+        }
+
+        .valid {
+            border: 2px solid green;
+        }
+
+        .invalid {
+            border: 2px solid red;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+
+    <form id="myForm" novalidate>
+        Name:
+        <input type="text" id="name">
+        <p id="nameError" class="error"></p>
+
+        Email:
+        <input type="text" id="email">
+        <p id="emailError" class="error"></p>
+
+        Phone:
+        <input type="text" id="phone">
+        <p id="phoneError" class="error"></p>
+
+        Password:
+        <input type="password" id="password">
+        <p id="passwordError" class="error"></p>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name");
+            let email = document.getElementById("email");
+            let phone = document.getElementById("phone");
+            let password = document.getElementById("password");
+
+            let nameValid = /^[A-Za-z]+$/.test(name.value);
+            let emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+            let phoneValid = /^\d{10}$/.test(phone.value);
+            let passwordValid = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/.test(password.value);
+
+            name.className = nameValid ? "valid" : "invalid";
+            email.className = emailValid ? "valid" : "invalid";
+            phone.className = phoneValid ? "valid" : "invalid";
+            password.className = passwordValid ? "valid" : "invalid";
+
+            document.getElementById("nameError").textContent =
+                nameValid ? "" : "Enter alphabets only.";
+
+            document.getElementById("emailError").textContent =
+                emailValid ? "" : "Enter a valid email.";
+
+            document.getElementById("phoneError").textContent =
+                phoneValid ? "" : "Enter exactly 10 digits.";
+
+            document.getElementById("passwordError").textContent =
+                passwordValid ? "" : "Include uppercase, number and special character.";
+
+            let result = document.getElementById("result");
+
+            if (nameValid && emailValid && phoneValid && passwordValid) {
+                result.style.color = "green";
+                result.textContent = "Registration successful!";
+            } else {
+                result.textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>

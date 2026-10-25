@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form Validation</title>
+</head>
+<body>
+    <h2>Login Form</h2>
+
+    <form id="loginForm" novalidate>
+        Username:
+        <input type="text" id="username">
+        <br><br>
+
+        Password:
+        <input type="password" id="password">
+        <br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            let usernamePattern = /^.{5,}$/;
+
+            let passwordPattern =
+                /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+            let message = document.getElementById("message");
+
+            if (!usernamePattern.test(username)) {
+                message.style.color = "red";
+                message.textContent =
+                    "Username must contain at least 5 characters.";
+            } else if (!passwordPattern.test(password)) {
+                message.style.color = "red";
+                message.textContent =
+                    "Password must have at least 8 characters, uppercase, lowercase, number and special character.";
+            } else {
+                message.style.color = "green";
+                message.textContent = "Login details are valid!";
+            }
+        });
+    </script>
+</body>
+</html>

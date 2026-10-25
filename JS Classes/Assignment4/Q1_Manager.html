@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Manager</title>
+</head>
+<body>
+    <h2>E-Commerce Product Manager</h2>
+
+    <script>
+        class Product {
+            constructor(id, name, price, category) {
+                this.id = id;
+                this.name = name;
+                this.price = price;
+                this.category = category;
+            }
+
+            applyDiscount(percent) {
+                this.price = this.price - (this.price * percent / 100);
+            }
+
+            getDetails() {
+                return "ID: " + this.id +
+                    ", Name: " + this.name +
+                    ", Price: " + this.price +
+                    ", Category: " + this.category;
+            }
+        }
+
+        let p1 = new Product(1, "Laptop", 50000, "Electronics");
+        let p2 = new Product(2, "Mouse", 500, "Electronics");
+        let p3 = new Product(3, "Keyboard", 1500, "Electronics");
+
+        let products = [p1, p2, p3];
+
+        p1.applyDiscount(10);
+
+        products.forEach(function(product) {
+            console.log(product.getDetails());
+        });
+
+        console.log("Products costing more than 1000:");
+
+        let expensive = products.filter(function(product) {
+            return product.price > 1000;
+        });
+
+        expensive.forEach(function(product) {
+            console.log(product.getDetails());
+        });
+    </script>
+</body>
+</html>

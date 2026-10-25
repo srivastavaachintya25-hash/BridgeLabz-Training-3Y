@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management</title>
+</head>
+<body>
+    <h2>Employee Management System</h2>
+
+    <ul id="employeeList"></ul>
+    <h3 id="total"></h3>
+
+    <script>
+        class Employee {
+            constructor(id, name, department, salary) {
+                this.id = id;
+                this.name = name;
+                this.department = department;
+                this.salary = salary;
+            }
+
+            getAnnualSalary() {
+                return this.salary * 12;
+            }
+
+            applyBonus(percent) {
+                return this.getAnnualSalary() +
+                    (this.getAnnualSalary() * percent / 100);
+            }
+        }
+
+        let employees = [
+            new Employee(1, "Aman", "IT", 40000),
+            new Employee(2, "Riya", "HR", 35000),
+            new Employee(3, "Karan", "Sales", 30000),
+            new Employee(4, "Neha", "IT", 45000),
+            new Employee(5, "Rahul", "Finance", 50000)
+        ];
+
+        let list = document.getElementById("employeeList");
+
+        employees.forEach(function(employee) {
+            let li = document.createElement("li");
+
+            li.textContent = employee.name +
+                " - Annual Salary: " + employee.getAnnualSalary() +
+                " - Salary with 10% bonus: " + employee.applyBonus(10);
+
+            list.appendChild(li);
+        });
+
+        let totalPayout = employees.reduce(function(total, employee) {
+            return total + employee.getAnnualSalary();
+        }, 0);
+
+        document.getElementById("total").textContent =
+            "Total Annual Payout: " + totalPayout;
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+</head>
+<body>
+    <h2>Movie Ticket Booking Form</h2>
+
+    <form id="bookingForm" novalidate>
+        Name:
+        <input type="text" id="name">
+        <br><br>
+
+        Email:
+        <input type="text" id="email">
+        <br><br>
+
+        Seats (1 to 10):
+        <input type="number" id="seats">
+        <br><br>
+
+        <button type="submit">Book Ticket</button>
+    </form>
+
+    <p id="message"></p>
+    <div id="ticket"></div>
+
+    <script>
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let seats = Number(document.getElementById("seats").value);
+
+            let namePattern = /^[A-Za-z ]+$/;
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            let message = document.getElementById("message");
+            let ticket = document.getElementById("ticket");
+
+            if (!namePattern.test(name)) {
+                message.textContent = "Name must contain alphabets only.";
+                ticket.textContent = "";
+            } else if (!emailPattern.test(email)) {
+                message.textContent = "Enter a valid email.";
+                ticket.textContent = "";
+            } else if (!Number.isInteger(seats) || seats < 1 || seats > 10) {
+                message.textContent = "Seats must be between 1 and 10.";
+                ticket.textContent = "";
+            } else {
+                let booking = {
+                    name: name,
+                    email: email,
+                    seats: seats
+                };
+
+                message.textContent = "Booking successful!";
+                ticket.textContent =
+                    "Name: " + booking.name +
+                    ", Email: " + booking.email +
+                    ", Seats: " + booking.seats;
+            }
+        });
+    </script>
+</body>
+</html>

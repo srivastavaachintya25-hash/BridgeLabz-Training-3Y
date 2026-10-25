@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Form Builder</title>
+</head>
+<body>
+    <h2>Custom Form Builder</h2>
+
+    <div id="formContainer"></div>
+
+    <h3>Form Data</h3>
+    <pre id="output"></pre>
+
+    <script>
+        class FormBuilder {
+            constructor(fields) {
+                this.fields = fields;
+            }
+
+            createForm() {
+                let form = document.createElement("form");
+
+                this.fields.forEach(function(field) {
+                    let label = document.createElement("label");
+                    label.textContent = field.label + ": ";
+
+                    let input = document.createElement("input");
+                    input.type = field.type;
+                    input.name = field.name;
+                    input.required = true;
+
+                    form.appendChild(label);
+                    form.appendChild(input);
+                    form.appendChild(document.createElement("br"));
+                    form.appendChild(document.createElement("br"));
+                });
+
+                let button = document.createElement("button");
+                button.type = "submit";
+                button.textContent = "Submit";
+                form.appendChild(button);
+
+                form.addEventListener("submit", (event) => {
+                    event.preventDefault();
+
+                    let data = this.getFormData(form);
+
+                    document.getElementById("output").textContent =
+                        JSON.stringify(data, null, 2);
+                });
+
+                document.getElementById("formContainer").appendChild(form);
+            }
+
+            getFormData(form) {
+                let data = {};
+
+                this.fields.forEach(function(field) {
+                    data[field.name] = form.elements[field.name].value;
+                });
+
+                return data;
+            }
+        }
+
+        let fields = [
+            { type: "text", label: "Username", name: "username" },
+            { type: "email", label: "Email", name: "email" },
+            { type: "password", label: "Password", name: "password" }
+        ];
+
+        let builder = new FormBuilder(fields);
+        builder.createForm();
+    </script>
+</body>
+</html>
