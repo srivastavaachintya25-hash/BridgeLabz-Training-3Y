@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+let salary = 30000;
+let increment = 10;
+let data = [];
+
+for (let year = 1; year <= 5; year++) {
+    // Increase salary by 10%
+    salary += salary * increment / 100;
+
+    salary = Math.round(salary);
+
+    data.push({
+        Year: year,
+        Salary: salary
+    });
+}
+
+console.table(data);
+
+    </script>
+</body>
+</html>

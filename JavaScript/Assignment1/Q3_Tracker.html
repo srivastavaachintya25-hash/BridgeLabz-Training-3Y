@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+let expenses = [3000, 1000, 5000, 1500, 1000];
+
+// Calculate total expenses
+let total = 0;
+
+for (let i = 0; i < expenses.length; i++) {
+    total += expenses[i];
+}
+
+// Calculate average
+let average = total / expenses.length;
+
+// Add 10% tax
+let tax = total * 0.10;
+let finalAmount = total + tax;
+
+console.log("Total Expenses: " + total.toFixed(2));
+console.log("Average Expenses: " + average.toFixed(2));
+console.log("Tax: " + tax.toFixed(2));
+console.log("Final Amount: " + finalAmount.toFixed(2));
+
+    </script>
+</body>
+</html>
