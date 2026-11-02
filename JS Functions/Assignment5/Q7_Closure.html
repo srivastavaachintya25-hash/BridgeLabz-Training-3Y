@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q7 Closure</title>
+</head>
+<body>
+
+    <h2>Make Multiplier</h2>
+
+    <script>
+        function makeMultiplier(multiplier) {
+
+            return function(number) {
+                return number * multiplier;
+            };
+        }
+
+        const triple = makeMultiplier(3);
+
+        console.log("Triple of 5:", triple(5));
+
+    </script>
+
+</body>
+</html>

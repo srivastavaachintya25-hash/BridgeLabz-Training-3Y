@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q9 ES6 Classes</title>
+</head>
+<body>
+
+    <h2>ES6 Class Inheritance</h2>
+
+    <script>
+        class Person {
+
+            constructor(name) {
+                this.name = name;
+            }
+
+            showName() {
+                console.log("Name:", this.name);
+            }
+        }
+
+        class Student extends Person {
+
+            constructor(name, branch) {
+                super(name);
+                this.branch = branch;
+            }
+
+            showDetails() {
+                console.log("Name:", this.name);
+                console.log("Branch:", this.branch);
+            }
+        }
+
+        let student1 = new Student("Achintya", "CSE AI & DS");
+
+        student1.showName();
+        student1.showDetails();
+
+    </script>
+
+</body>
+</html>

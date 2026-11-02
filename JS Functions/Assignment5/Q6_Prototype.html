@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q6 Prototype Chain</title>
+</head>
+<body>
+
+    <h2>Prototype Chain</h2>
+
+    <script>
+        function Person(name) {
+            this.name = name;
+        }
+
+        Person.prototype.showName = function() {
+            console.log("Name:", this.name);
+        };
+
+        function Faculty(department) {
+            this.department = department;
+        }
+
+        Faculty.prototype = Object.create(Person.prototype);
+        Faculty.prototype.constructor = Faculty;
+
+        Faculty.prototype.showDepartment = function() {
+            console.log("Department:", this.department);
+        };
+
+        function Professor(subject) {
+            this.subject = subject;
+        }
+
+        Professor.prototype = Object.create(Faculty.prototype);
+        Professor.prototype.constructor = Professor;
+
+        Professor.prototype.showSubject = function() {
+            console.log("Subject:", this.subject);
+        };
+
+        let professor1 = new Professor("Computer Science");
+
+        professor1.name = "Mr. Sharma";
+        professor1.department = "CSE";
+
+        professor1.showName();
+        professor1.showDepartment();
+        professor1.showSubject();
+
+    </script>
+
+</body>
+</html>

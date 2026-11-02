@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q5 Inheritance</title>
+</head>
+<body>
+
+    <h2>Person Student Inheritance</h2>
+
+    <script>
+        function Person(name) {
+            this.name = name;
+        }
+
+        Person.prototype.showName = function() {
+            console.log("Name:", this.name);
+        };
+
+        function Student(name, branch) {
+            Person.call(this, name);
+            this.branch = branch;
+        }
+
+        Student.prototype = Object.create(Person.prototype);
+        Student.prototype.constructor = Student;
+
+        Student.prototype.showDetails = function() {
+            console.log("Name:", this.name);
+            console.log("Branch:", this.branch);
+        };
+
+        let student1 = new Student("Achintya", "CSE AI & DS");
+
+        student1.showName();
+        student1.showDetails();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q3 This Keyword</title>
+</head>
+<body>
+
+    <h2>Arrow Function and Normal Function</h2>
+
+    <script>
+        let user = {
+            name: "Achintya",
+
+            showName: () => {
+                console.log("Arrow Function:", this.name);
+            },
+
+            displayName: function() {
+                console.log("Normal Function:", this.name);
+            }
+        };
+
+        user.showName();
+        user.displayName();
+
+    </script>
+
+</body>
+</html>
