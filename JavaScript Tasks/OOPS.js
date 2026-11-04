@@ -3,7 +3,7 @@
 // Student Branch, Student Specialization
 
 // Functions:- AddStudent, DisplayDetails, RemoveStudent
-// Menu Driven using switch case
+// Menu Driven using switch cases
 
 class Student {
 
