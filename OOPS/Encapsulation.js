@@ -1,3 +1,8 @@
+// Encapsulation is a core concept in object-oriented programming (OOP) that bundles data (attributes) and
+// the methods (functions) that operate on that data into a single unit, such as a class
+
+// encapsulation is used to secure variables
+
 // class Student{   //Encapsulated class
 
 //     #StudentId=101;
