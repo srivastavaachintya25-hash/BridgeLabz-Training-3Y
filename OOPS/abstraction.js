@@ -13,43 +13,38 @@
 // const a= new Student();
 // a.commonMethod();
 
-class Bank{
-    #balance=5000;
 
-    // deposite
+// Abstraction is used to secure methods
 
-    #deposit(amount)
-    {
-        if(amount>0){
-            this.#balance+=amount;
-            console.log("Balance is :- "+ this.#balance);
-        }else{
+class Bank {
+    #balance = 5000;
+
+    // deposit
+    #deposit(amount) {
+        if (amount > 0) {
+            this.#balance += amount;
+            console.log("Balance is :- " + this.#balance);
+        } else {
             console.log("Please enter valid amount");
-
         }
     }
 
     // withdraw
-
-    #withdraw(amount)
-    {
-        if(amount>0 && amount<=this.#balance){
-            this.#balance-=amount;
-            console.log("Balance is :- "+ this.#balance);
-        }else{
+    #withdraw(amount) {
+        if (amount > 0 && amount <= this.#balance) {
+            this.#balance -= amount;
+            console.log("Balance is :- " + this.#balance);
+        } else {
             console.log("Please enter valid amount");
-
         }
     }
 
-    // getbalance
-
-    #getBalance()
-    {
+    // get balance
+    #getBalance() {
         return this.#balance;
     }
 
-     commonMethod(choice, amount) {
+    commonMethod(choice, amount) {
         switch (choice) {
             case 1:
                 this.#deposit(amount);
@@ -72,32 +67,39 @@ class Bank{
 const bank = new Bank();
 
 let choice;
-do{
-    choice=Number(prompt(
 
-    "---------------------SBI BANK---------------------\n"+
-        "1. Bank Deposit\n"+
-        "2. Bank Withdraw\n"+
-        "3. Get Balance\n"+
-        "4. Exit\n"+
-    "---------------------------------------------------\n"+
+do {
+    choice = Number(prompt(
+        "---------------------SBI BANK---------------------\n" +
+        "1. Bank Deposit\n" +
+        "2. Bank Withdraw\n" +
+        "3. Get Balance\n" +
+        "4. Exit\n" +
+        "---------------------------------------------------\n" +
         "Enter your choice :- "
     ));
-    switch(choice){
+
+    switch (choice) {
         case 1:
-            let amount=Number(prompt("Enter Deposit amount :- "));
-            bank.#deposit(amount);
+            let amount = Number(prompt("Enter Deposit amount :- "));
+            bank.commonMethod(1, amount);
             break;
+
         case 2:
-            let value=Number(prompt("Enter Withdraw amount :- "));
-            bank.#withdraw(value);
+            let value = Number(prompt("Enter Withdraw amount :- "));
+            bank.commonMethod(2, value);
             break;
+
         case 3:
-            console.log("Balance is :- "+ bank.#getBalance());
+            bank.commonMethod(3);
             break;
+
         case 4:
             console.log("Thank you for using our services");
             break;
-        
+
+        default:
+            console.log("Invalid choice");
     }
-} while(choice!=4);
+
+} while (choice != 4);
