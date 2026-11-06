@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q8 - Order Processing</title>
+</head>
+<body>
+
+    <h2>Order Processing System</h2>
+
+    <script>
+
+        // Function that randomly succeeds or fails
+        function submitOrder() {
+
+            return new Promise((resolve, reject) => {
+
+                setTimeout(() => {
+
+                    let success = Math.random() < 0.5;
+
+                    if (success) {
+                        resolve("Order Submitted Successfully");
+                    } else {
+                        reject("Order Submission Failed");
+                    }
+
+                }, 1000);
+
+            });
+
+        }
+
+        // Retry mechanism
+        async function processOrder() {
+
+            // Try maximum 3 times
+            for (let attempt = 1; attempt <= 3; attempt++) {
+
+                try {
+
+                    console.log("Attempt " + attempt);
+
+                    let result = await submitOrder();
+
+                    console.log(
+                        "Attempt " + attempt + ": Success"
+                    );
+
+                    console.log(result);
+
+                    return;
+
+                }
+                catch (error) {
+
+                    console.log(
+                        "Attempt " + attempt + ": Failed"
+                    );
+
+                }
+
+            }
+
+            // All attempts failed
+            throw new Error(
+                "Order could not be processed"
+            );
+
+        }
+
+        // Handle final error
+        async function startOrder() {
+
+            try {
+
+                await processOrder();
+
+            }
+            catch (error) {
+
+                console.log("Final Error: " + error.message);
+
+            }
+
+        }
+
+        // Start order processing
+        startOrder();
+
+    </script>
+
+</body>
+</html>

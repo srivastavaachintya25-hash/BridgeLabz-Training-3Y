@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q2 - Task Scheduler</title>
+</head>
+<body>
+    <h2>Task Scheduler</h2>
+
+    <script>
+        console.log("Start");
+
+        // Macrotask using setTimeout
+        setTimeout(() => {
+            console.log("setTimeout Callback");
+        }, 0);
+
+        // Microtask using Promise
+        Promise.resolve().then(() => {
+            console.log("Promise Callback");
+        });
+
+        // Synchronous task
+        console.log("Synchronous Log");
+
+        console.log("End");
+        
+    </script>
+</body>
+</html>

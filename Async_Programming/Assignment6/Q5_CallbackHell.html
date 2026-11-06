@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q5 - Callback Hell</title>
+</head>
+<body>
+    <h2>Frontend Build Pipeline</h2>
+
+    <script>
+        // First: Using Nested Callbacks
+
+        function design(callback) {
+            setTimeout(() => {
+                console.log("Design completed");
+
+                callback();
+            }, 1000);
+        }
+
+        function build(callback) {
+            setTimeout(() => {
+                console.log("Build completed");
+
+                callback();
+            }, 1000);
+        }
+
+        function test(callback) {
+            setTimeout(() => {
+                console.log("Testing completed");
+
+                callback();
+            }, 1000);
+        }
+
+        function deploy(callback) {
+            setTimeout(() => {
+                console.log("Deployment completed");
+
+                callback();
+            }, 1000);
+        }
+
+        function celebrate() {
+            setTimeout(() => {
+                console.log("Celebration started!");
+            }, 1000);
+        }
+
+        console.log("Starting Callback Pipeline");
+
+        // Callback Hell
+        design(() => {
+            build(() => {
+                test(() => {
+                    deploy(() => {
+                        celebrate();
+                    });
+                });
+            });
+        });
+
+
+        // Second: Using Async/Await
+
+        function wait() {
+            return new Promise((resolve) => {
+                setTimeout(resolve, 1000);
+            });
+        }
+
+        async function runPipeline() {
+
+            console.log("Starting Async Pipeline");
+
+            await wait();
+            console.log("Design completed");
+
+            await wait();
+            console.log("Build completed");
+
+            await wait();
+            console.log("Testing completed");
+
+            await wait();
+            console.log("Deployment completed");
+
+            await wait();
+            console.log("Celebration started!");
+        }
+
+        // Run async pipeline after callback pipeline
+        setTimeout(() => {
+            runPipeline();
+        }, 5500);
+
+        /*
+        Explanation:
+
+        Callback Hell uses nested functions.
+        This makes code difficult to read.
+
+        Async/await makes asynchronous code
+        look like normal synchronous code.
+
+        It improves readability and maintenance.
+        */
+    </script>
+</body>
+</html>

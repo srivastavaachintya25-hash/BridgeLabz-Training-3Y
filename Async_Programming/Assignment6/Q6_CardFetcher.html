@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q6 - Product Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid gray;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .card h3 {
+            font-size: 15px;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Fake Store - Product Dashboard</h2>
+
+    <div id="products"></div>
+
+    <script>
+
+        async function fetchProducts() {
+
+            let productContainer =
+                document.getElementById("products");
+
+            try {
+
+                // Fetch product data from API
+                let response = await fetch(
+                    "https://fakestoreapi.com/products"
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch products");
+                }
+
+                let products = await response.json();
+
+                // Display each product
+                products.forEach((product) => {
+
+                    console.log("Product: " + product.title);
+                    console.log("Price: $" + product.price);
+                    console.log("Image: " + product.image);
+
+                    // Create product card
+                    let card = document.createElement("div");
+
+                    card.className = "card";
+
+                    let image = document.createElement("img");
+                    image.src = product.image;
+                    image.alt = product.title;
+
+                    let title = document.createElement("h3");
+                    title.textContent = product.title;
+
+                    let price = document.createElement("p");
+                    price.className = "price";
+                    price.textContent = "$" + product.price;
+
+                    // Add elements to card
+                    card.appendChild(image);
+                    card.appendChild(title);
+                    card.appendChild(price);
+
+                    // Add card to webpage
+                    productContainer.appendChild(card);
+
+                });
+
+            }
+            catch (error) {
+
+                console.log(error);
+
+                productContainer.textContent =
+                    "Failed to load products. Please try again.";
+
+            }
+        }
+
+        // Call function
+        fetchProducts();
+
+    </script>
+
+</body>
+</html>

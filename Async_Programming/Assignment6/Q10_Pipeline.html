@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q10 - Delivery Pipeline</title>
+</head>
+<body>
+
+    <h2>Food Delivery Pipeline</h2>
+
+    <script>
+
+        // Step 1: Take Order
+        function takeOrder() {
+
+            return new Promise((resolve, reject) => {
+
+                let delay = Math.floor(Math.random() * 1000) + 1000;
+
+                setTimeout(() => {
+
+                    if (Math.random() < 0.8) {
+                        resolve("Order taken");
+                    } else {
+                        reject("Order taking failed");
+                    }
+
+                }, delay);
+
+            });
+
+        }
+
+        // Step 2: Prepare Food
+        function prepareFood() {
+
+            return new Promise((resolve, reject) => {
+
+                let delay = Math.floor(Math.random() * 1000) + 1000;
+
+                setTimeout(() => {
+
+                    if (Math.random() < 0.8) {
+                        resolve("Food prepared");
+                    } else {
+                        reject("Food preparation failed");
+                    }
+
+                }, delay);
+
+            });
+
+        }
+
+        // Step 3: Pack Food
+        function packFood() {
+
+            return new Promise((resolve, reject) => {
+
+                let delay = Math.floor(Math.random() * 1000) + 1000;
+
+                setTimeout(() => {
+
+                    if (Math.random() < 0.8) {
+                        resolve("Package ready");
+                    } else {
+                        reject("Packing failed");
+                    }
+
+                }, delay);
+
+            });
+
+        }
+
+        // Step 4: Dispatch Order
+        function dispatchOrder() {
+
+            return new Promise((resolve, reject) => {
+
+                let delay = Math.floor(Math.random() * 1000) + 1000;
+
+                setTimeout(() => {
+
+                    if (Math.random() < 0.8) {
+                        resolve("Out for delivery");
+                    } else {
+                        reject("Dispatch failed");
+                    }
+
+                }, delay);
+
+            });
+
+        }
+
+        // Step 5: Deliver Order
+        function deliverOrder() {
+
+            return new Promise((resolve, reject) => {
+
+                let delay = Math.floor(Math.random() * 1000) + 1000;
+
+                setTimeout(() => {
+
+                    if (Math.random() < 0.8) {
+                        resolve("Delivery completed");
+                    } else {
+                        reject("Delivery failed");
+                    }
+
+                }, delay);
+
+            });
+
+        }
+
+        // Main Async Pipeline
+        async function runPipeline() {
+
+            try {
+
+                console.log("Start Pipeline");
+
+                // Step 1
+                let step1 = await takeOrder();
+                console.log("Step 1: " + step1);
+
+                // Step 2
+                let step2 = await prepareFood();
+                console.log("Step 2: " + step2);
+
+                // Step 3
+                let step3 = await packFood();
+                console.log("Step 3: " + step3);
+
+                // Step 4
+                let step4 = await dispatchOrder();
+                console.log("Step 4: " + step4);
+
+                // Step 5
+                let step5 = await deliverOrder();
+                console.log("Step 5: " + step5);
+
+                console.log("Delivery completed!");
+
+            }
+            catch (error) {
+
+                console.log("Pipeline failed!");
+                console.log("Error: " + error);
+
+            }
+
+        }
+
+        // Start the pipeline
+        runPipeline();
+
+    </script>
+
+</body>
+</html>

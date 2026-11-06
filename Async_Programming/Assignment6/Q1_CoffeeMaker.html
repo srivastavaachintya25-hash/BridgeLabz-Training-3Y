@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q1 - Async Coffee Maker</title>
+</head>
+<body>
+    <h2>Async Coffee Maker</h2>
+
+    <script>
+        // Step 1: Boil Water
+        function boilWater() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Water is boiled");
+
+                    if (Math.random() < 0.1) {
+                        reject("Water boiling failed!");
+                    } else {
+                        resolve();
+                    }
+                }, 1000);
+            });
+        }
+
+        // Step 2: Brew Coffee
+        function brewCoffee() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Coffee is brewed");
+
+                    if (Math.random() < 0.1) {
+                        reject("Coffee brewing failed!");
+                    } else {
+                        resolve();
+                    }
+                }, 1500);
+            });
+        }
+
+        // Step 3: Pour Coffee
+        function pourCoffee() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Coffee poured into cup");
+
+                    if (Math.random() < 0.1) {
+                        reject("Pouring coffee failed!");
+                    } else {
+                        resolve();
+                    }
+                }, 1000);
+            });
+        }
+
+        // Promise Chaining
+        boilWater()
+            .then(() => {
+                return brewCoffee();
+            })
+            .then(() => {
+                return pourCoffee();
+            })
+            .then(() => {
+                console.log("Coffee ready for the team!");
+            })
+            .catch((error) => {
+                console.log("Error: " + error);
+            });
+
+    </script>
+</body>
+</html>

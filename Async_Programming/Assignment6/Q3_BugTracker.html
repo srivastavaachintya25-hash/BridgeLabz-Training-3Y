@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q3 - Bug Tracker</title>
+</head>
+<body>
+    <h2>Bug Tracker</h2>
+
+    <script>
+        // Original callback function
+        function fetchBugs(callback) {
+            setTimeout(() => {
+                callback([
+                    "UI glitch",
+                    "API timeout",
+                    "Login failure"
+                ]);
+            }, 1000);
+        }
+
+        // Convert callback into Promise
+        function getBugs() {
+            return new Promise((resolve, reject) => {
+
+                setTimeout(() => {
+
+                    let bugs = [
+                        "UI glitch",
+                        "API timeout",
+                        "Login failure"
+                    ];
+
+                    // Simulate random API failure
+                    let failure = Math.random() < 0.3;
+
+                    if (failure) {
+                        reject("API failed to fetch bugs");
+                    } else {
+                        resolve(bugs);
+                    }
+
+                }, 1000);
+
+            });
+        }
+
+        // Calling Promise function
+        getBugs()
+            .then((bugs) => {
+                console.log("Bug List:");
+                console.table(bugs);
+            })
+            .catch((error) => {
+                console.log("Error: " + error);
+            });
+
+    </script>
+</body>
+</html>

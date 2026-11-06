@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q9 - Event Loop</title>
+</head>
+<body>
+
+    <h2>Debugging the Event Loop</h2>
+
+    <script>
+
+        /*
+        Predicted Output:
+
+        Script start
+        Script end
+        Promise callback
+        Timeout callback
+
+        Explanation:
+        Synchronous code executes first.
+        Promise callbacks execute as microtasks.
+        setTimeout executes as a macrotask.
+        */
+
+        console.log("Script start");
+
+        // Macrotask
+        setTimeout(() => {
+            console.log("Timeout callback");
+        }, 0);
+
+        // Microtask
+        Promise.resolve().then(() => {
+            console.log("Promise callback");
+        });
+
+        // Synchronous statement
+        console.log("Script end");
+
+    </script>
+
+</body>
+</html>
