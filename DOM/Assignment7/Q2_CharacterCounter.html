@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q2 - Character Counter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        textarea {
+            width: 350px;
+            height: 120px;
+            padding: 10px;
+        }
+
+        #counter {
+            color: green;
+            font-weight: bold;
+        }
+
+        .warning {
+            color: orange !important;
+        }
+
+        .danger {
+            color: red !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Live Character Counter</h2>
+
+    <textarea id="message"
+              placeholder="Enter your message..."></textarea>
+
+    <p id="counter">100 characters remaining</p>
+
+    <button id="reset">Reset</button>
+
+    <script>
+
+        let message = document.getElementById("message");
+        let counter = document.getElementById("counter");
+        let reset = document.getElementById("reset");
+
+        let maxLength = 100;
+
+        // Update character counter
+        message.addEventListener("input", function() {
+
+            let remaining = maxLength - message.value.length;
+
+            counter.textContent =
+                remaining + " characters remaining";
+
+            counter.className = "";
+
+            // Yellow warning at 20 characters
+            if (remaining <= 20 && remaining > 0) {
+                counter.classList.add("warning");
+            }
+
+            // Red warning at zero
+            if (remaining === 0) {
+                counter.classList.add("danger");
+            }
+
+        });
+
+        // Prevent typing beyond 100 characters
+        message.addEventListener("beforeinput", function(event) {
+
+            if (event.data !== null &&
+                message.value.length >= maxLength) {
+
+                event.preventDefault();
+
+            }
+
+        });
+
+        // Reset everything
+        reset.addEventListener("click", function() {
+
+            message.value = "";
+
+            counter.textContent =
+                "100 characters remaining";
+
+            counter.className = "";
+
+        });
+
+    </script>
+
+</body>
+</html>

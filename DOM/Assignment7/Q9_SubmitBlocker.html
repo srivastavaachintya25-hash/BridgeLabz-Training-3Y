@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q9 - Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        input {
+            display: block;
+            padding: 10px;
+            width: 250px;
+            margin-top: 8px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        #success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form id="myForm">
+
+        <!-- Name -->
+        <label>Name:</label>
+
+        <input type="text" id="name"
+               placeholder="Enter your name">
+
+        <p class="error" id="nameError"></p>
+
+
+        <!-- Email -->
+        <label>Email:</label>
+
+        <input type="text" id="email"
+               placeholder="Enter your email">
+
+        <p class="error" id="emailError"></p>
+
+
+        <!-- Password -->
+        <label>Password:</label>
+
+        <input type="password" id="password"
+               placeholder="Enter password">
+
+        <p class="error" id="passwordError"></p>
+
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <p id="success"></p>
+
+    <script>
+
+        let form = document.getElementById("myForm");
+
+        let name = document.getElementById("name");
+
+        let email = document.getElementById("email");
+
+        let password = document.getElementById("password");
+
+        let success = document.getElementById("success");
+
+        // Validate Name
+        function validateName() {
+
+            if (name.value.trim() === "") {
+
+                document.getElementById("nameError").textContent =
+                    "Name is required";
+
+                return false;
+
+            } else {
+
+                document.getElementById("nameError").textContent = "";
+
+                return true;
+
+            }
+
+        }
+
+        // Validate Email
+        function validateEmail() {
+
+            if (email.value.trim() === "") {
+
+                document.getElementById("emailError").textContent =
+                    "Email is required";
+
+                return false;
+
+            }
+
+            else if (!email.value.includes("@")) {
+
+                document.getElementById("emailError").textContent =
+                    "Email must contain @";
+
+                return false;
+
+            }
+
+            else {
+
+                document.getElementById("emailError").textContent = "";
+
+                return true;
+
+            }
+
+        }
+
+        // Validate Password
+        function validatePassword() {
+
+            if (password.value.length < 6) {
+
+                document.getElementById("passwordError").textContent =
+                    "Password must contain at least 6 characters";
+
+                return false;
+
+            } else {
+
+                document.getElementById("passwordError").textContent = "";
+
+                return true;
+
+            }
+
+        }
+
+        // Live validation when typing
+        name.addEventListener("input", validateName);
+
+        email.addEventListener("input", validateEmail);
+
+        password.addEventListener("input", validatePassword);
+
+        // Form submission
+        form.addEventListener("submit", function(event) {
+
+            // Prevent default form submission
+            event.preventDefault();
+
+            let validName = validateName();
+
+            let validEmail = validateEmail();
+
+            let validPassword = validatePassword();
+
+            if (validName && validEmail && validPassword) {
+
+                success.textContent =
+                    "Form Submitted Successfully";
+
+                form.reset();
+
+            } else {
+
+                success.textContent = "";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

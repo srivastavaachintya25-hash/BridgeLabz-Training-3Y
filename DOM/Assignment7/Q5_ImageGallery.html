@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q5 - Image Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal img {
+            max-width: 80%;
+            max-height: 80%;
+            border: 5px solid white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Image Gallery</h2>
+
+    <div class="gallery">
+
+        <img src="https://picsum.photos/id/1015/400/300" alt="Image 1">
+        <img src="https://picsum.photos/id/1016/400/300" alt="Image 2">
+        <img src="https://picsum.photos/id/1018/400/300" alt="Image 3">
+        <img src="https://picsum.photos/id/1020/400/300" alt="Image 4">
+        <img src="https://picsum.photos/id/1024/400/300" alt="Image 5">
+        <img src="https://picsum.photos/id/1035/400/300" alt="Image 6">
+
+    </div>
+
+    <!-- Modal -->
+    <div id="modal">
+
+        <img id="previewImage" src="" alt="Preview">
+
+    </div>
+
+    <script>
+
+        let gallery = document.querySelector(".gallery");
+
+        let modal = document.getElementById("modal");
+
+        let previewImage =
+            document.getElementById("previewImage");
+
+        // Open modal when image is clicked
+        gallery.addEventListener("click", function(event) {
+
+            if (event.target.tagName === "IMG") {
+
+                previewImage.src = event.target.src;
+
+                modal.style.display = "flex";
+
+            }
+
+        });
+
+        // Prevent modal from closing when image is clicked
+        previewImage.addEventListener("click", function(event) {
+
+            event.stopPropagation();
+
+        });
+
+        // Close modal when clicking outside image
+        modal.addEventListener("click", function() {
+
+            modal.style.display = "none";
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q6 - Student Table Filter</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Details</h2>
+
+    <input type="text" id="search"
+           placeholder="Search Name, Branch or CGPA">
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>CGPA</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTable">
+
+            <tr>
+                <td>Achintya</td>
+                <td>CSE</td>
+                <td>8.5</td>
+            </tr>
+
+            <tr>
+                <td>Krishna</td>
+                <td>IT</td>
+                <td>8.2</td>
+            </tr>
+
+            <tr>
+                <td>Antra</td>
+                <td>AI</td>
+                <td>9.0</td>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>ECE</td>
+                <td>7.8</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <p id="noResult" style="display:none;">
+        No results found
+    </p>
+
+    <script>
+
+        let search = document.getElementById("search");
+
+        let rows = document.querySelectorAll("#studentTable tr");
+
+        let noResult = document.getElementById("noResult");
+
+        // Search while typing
+        search.addEventListener("input", function() {
+
+            let searchValue = search.value.toLowerCase();
+
+            let found = 0;
+
+            rows.forEach(function(row) {
+
+                let rowText = row.textContent.toLowerCase();
+
+                if (rowText.includes(searchValue)) {
+
+                    row.style.display = "";
+
+                    found++;
+
+                } else {
+
+                    row.style.display = "none";
+
+                }
+
+            });
+
+            // Show message if no matching row
+            if (found === 0) {
+
+                noResult.style.display = "block";
+
+            } else {
+
+                noResult.style.display = "none";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

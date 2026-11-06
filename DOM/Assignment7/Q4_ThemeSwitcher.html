@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q4 - Theme Switcher</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+            transition: 0.3s;
+        }
+
+        .light {
+            background-color: white;
+            color: black;
+        }
+
+        .dark {
+            background-color: #222;
+            color: white;
+        }
+
+        .blue {
+            background-color: #dbeafe;
+            color: #1e3a8a;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="light" data-theme="light">
+
+    <h2>Theme Switcher</h2>
+
+    <p>Choose your preferred theme</p>
+
+    <button onclick="changeTheme('light')">Light</button>
+
+    <button onclick="changeTheme('dark')">Dark</button>
+
+    <button onclick="changeTheme('blue')">Blue</button>
+
+    <p id="currentTheme">Current Theme: Light</p>
+
+    <script>
+
+        function changeTheme(theme) {
+
+            let body = document.body;
+
+            // Remove previous theme classes
+            body.classList.remove("light", "dark", "blue");
+
+            // Add selected theme
+            body.classList.add(theme);
+
+            // Save theme in custom attribute
+            body.setAttribute("data-theme", theme);
+
+            // Display current theme
+            document.getElementById("currentTheme").textContent =
+                "Current Theme: " + theme;
+
+        }
+
+    </script>
+
+</body>
+</html>

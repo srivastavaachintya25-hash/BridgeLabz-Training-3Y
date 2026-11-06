@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q1 - Product List Manager</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        input {
+            padding: 10px;
+        }
+
+        button {
+            padding: 8px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Product List Manager</h2>
+
+    <input type="text" id="productInput"
+           placeholder="Enter product name">
+
+    <button onclick="addProduct()">Add Product</button>
+
+    <ul id="productList">
+        <li>
+            Laptop
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+        </li>
+        <li>
+            Mobile
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+        </li>
+    </ul>
+
+    <script>
+
+        let input = document.getElementById("productInput");
+        let list = document.getElementById("productList");
+
+        // Add new product
+        function addProduct() {
+
+            let productName = input.value.trim();
+
+            if (productName === "") {
+                alert("Please enter product name");
+                return;
+            }
+
+            let li = document.createElement("li");
+
+            li.appendChild(document.createTextNode(productName));
+
+            let editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.className = "edit";
+
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.className = "delete";
+
+            li.appendChild(editButton);
+            li.appendChild(deleteButton);
+
+            list.appendChild(li);
+
+            input.value = "";
+        }
+
+        // Event Delegation
+        list.addEventListener("click", function(event) {
+
+            let li = event.target.closest("li");
+
+            if (!li || li.parentElement !== list) {
+                return;
+            }
+
+            // Delete product
+            if (event.target.classList.contains("delete")) {
+                li.remove();
+            }
+
+            // Edit product
+            if (event.target.classList.contains("edit")) {
+
+                let oldText = li.firstChild.textContent.trim();
+
+                let editInput = document.createElement("input");
+                editInput.type = "text";
+                editInput.value = oldText;
+
+                li.replaceChild(editInput, li.firstChild);
+
+                editInput.focus();
+
+                function saveEdit() {
+
+                    if (!li.contains(editInput)) {
+                        return;
+                    }
+
+                    let newText = editInput.value.trim();
+
+                    li.replaceChild(
+                        document.createTextNode(newText || oldText),
+                        editInput
+                    );
+                }
+
+                // Save when Enter is pressed
+                editInput.addEventListener("keydown", function(e) {
+                    if (e.key === "Enter") {
+                        saveEdit();
+                    }
+                });
+
+                // Save when clicking outside
+                editInput.addEventListener("blur", saveEdit);
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
