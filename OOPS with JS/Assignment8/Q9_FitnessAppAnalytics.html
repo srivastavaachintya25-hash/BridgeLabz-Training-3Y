@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness App Analytics</title>
+</head>
+<body>
+    <h2>Fitness App Analytics</h2>
+
+    <script>
+        let workoutData = [
+            { user: "A", steps: 8000, calories: 300 },
+            { user: "B", steps: 12000, calories: 500 },
+            { user: "C", steps: 4000, calories: 200 }
+        ];
+
+        class FitnessAnalytics {
+
+            constructor(data) {
+                this.data = data;
+            }
+
+            getActiveUsers() {
+                return this.data.filter(function(user) {
+                    return user.steps > 7000;
+                });
+            }
+
+            getAverageCalories() {
+                let total = this.data.reduce(function(sum, user) {
+                    return sum + user.calories;
+                }, 0);
+
+                return total / this.data.length;
+            }
+
+            getUserSummary() {
+                return this.data.map(function(user) {
+                    return user.user + " burned " + user.calories +
+                           " calories and walked " + user.steps + " steps.";
+                });
+            }
+        }
+
+        try {
+            if (workoutData.length === 0) {
+                throw new Error("Workout data is empty!");
+            }
+
+            let fitness = new FitnessAnalytics(workoutData);
+
+            document.write("<h3>Active Users</h3>");
+
+            let activeUsers = fitness.getActiveUsers();
+
+            activeUsers.forEach(function(user) {
+                document.write(user.user + " - " + user.steps + " steps<br>");
+            });
+
+            document.write("<h3>Average Calories</h3>");
+            document.write(fitness.getAverageCalories() + "<br>");
+
+            document.write("<h3>User Summary</h3>");
+
+            let summary = fitness.getUserSummary();
+
+            summary.forEach(function(message) {
+                document.write(message + "<br>");
+            });
+        }
+        catch(error) {
+            document.write("Error: " + error.message);
+        }
+    </script>
+</body>
+</html>

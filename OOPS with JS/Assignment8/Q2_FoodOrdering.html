@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Food Ordering</title>
+</head>
+<body>
+    <h2>Online Food Ordering</h2>
+
+    <script>
+        let menu = [
+            { name: "Pizza", price: 250 },
+            { name: "Burger", price: 120 },
+            { name: "Pasta", price: 180 }
+        ];
+
+        function calculateBill(orderItems) {
+            try {
+                let prices = orderItems.map(function(item) {
+                    let food = menu.find(m => m.name === item);
+
+                    if (!food) {
+                        throw new Error("Invalid item: " + item);
+                    }
+
+                    return food.price;
+                });
+
+                let total = prices.reduce(function(sum, price) {
+                    return sum + price;
+                }, 0);
+
+                document.write("Prices: " + prices.join(", ") + "<br>");
+                document.write("Total Bill: Rs. " + total);
+            }
+            catch(error) {
+                document.write("Error: " + error.message);
+            }
+        }
+
+        calculateBill(["Pizza", "Burger"]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Ticket Booking</title>
+</head>
+<body>
+    <h2>Movie Ticket Booking System</h2>
+
+    <script>
+        class MovieTicket {
+            constructor(movieName, seatNo, price) {
+                this.movieName = movieName;
+                this.seatNo = seatNo;
+                this.price = price;
+            }
+        }
+
+        // Prototype method
+        MovieTicket.prototype.printTicket = function() {
+            document.write("<h3>Movie Ticket Details</h3>");
+            document.write("Movie: " + this.movieName + "<br>");
+            document.write("Seat No: " + this.seatNo + "<br>");
+            document.write("Price: Rs. " + this.price + "<br>");
+        };
+
+        class OnlineTicket extends MovieTicket {
+            constructor(movieName, seatNo, price, convenienceFee) {
+                super(movieName, seatNo, price);
+                this.convenienceFee = convenienceFee;
+            }
+
+            getTotalAmount() {
+                return this.price + this.convenienceFee;
+            }
+        }
+
+        let ticket = new OnlineTicket("Avengers", "A10", 250, 30);
+
+        ticket.printTicket();
+
+        document.write("Convenience Fee: Rs. " + ticket.convenienceFee + "<br>");
+        document.write("Total Amount: Rs. " + ticket.getTotalAmount());
+
+        // printTicket() is inherited through the prototype chain.
+    </script>
+</body>
+</html>

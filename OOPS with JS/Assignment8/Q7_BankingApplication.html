@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banking Application</title>
+</head>
+<body>
+    <h2>Banking Application</h2>
+
+    <script>
+        class BankAccount {
+            #balance = 0;
+
+            constructor(balance) {
+                this.#balance = balance;
+            }
+
+            deposit(amount) {
+                if (amount <= 0) {
+                    throw new Error("Deposit amount must be positive!");
+                }
+
+                this.#balance += amount;
+                document.write("Amount Deposited: Rs. " + amount + "<br>");
+            }
+
+            withdraw(amount) {
+                if (amount <= 0) {
+                    throw new Error("Invalid withdrawal amount!");
+                }
+
+                if (amount > this.#balance) {
+                    throw new Error("Insufficient Balance!");
+                }
+
+                this.#balance -= amount;
+                document.write("Amount Withdrawn: Rs. " + amount + "<br>");
+            }
+
+            getBalance() {
+                return this.#balance;
+            }
+        }
+
+        let account = new BankAccount(5000);
+
+        try {
+            account.deposit(2000);
+            document.write("Balance: Rs. " + account.getBalance() + "<br><br>");
+
+            account.withdraw(1000);
+            document.write("Balance: Rs. " + account.getBalance() + "<br><br>");
+
+            account.withdraw(10000);
+        }
+        catch(error) {
+            document.write("Error: " + error.message + "<br>");
+        }
+
+        document.write("<br>Final Balance: Rs. " + account.getBalance());
+    </script>
+</body>
+</html>
